@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "allowJs": true,
+        "module": "commonjs",
+        "lib": ["dom", "ESNext", "DOM.Iterable"],
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "outDir": "dist",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "allowImportingTsExtensions": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        // "paths": {
+        //   "*": [
+        //     "node_modules/*"
+        //   ]
+        // }
+
+        /* for shadcn */
+        "baseUrl": ".",
+        "paths": {
+            "@": ["./@"]
+        }
+    },
+    "include": ["src/**/*"],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
+}
