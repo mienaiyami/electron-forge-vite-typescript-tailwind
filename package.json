@@ -1,7 +1,7 @@
 {
   "name": "electron-forge-vite-ts-react-tailwindcss",
   "productName": "electron-forge-vite-ts-react-tailwindcss",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Electron App description",
   "main": ".vite/build/main.js",
   "scripts": {

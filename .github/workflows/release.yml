@@ -45,7 +45,7 @@ jobs:
       - name: Install dependencies
         run: yarn ci --network-timeout 1000000
       - name: forge make
-        run: yarn make
+        run: yarn make:zip
       
       # get .deb file
 

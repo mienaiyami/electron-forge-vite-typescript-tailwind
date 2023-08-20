@@ -39,7 +39,7 @@ const tagAndPush = () => {
 rl.question(
     "\x1b[91mMake sure to edit and commit package.json with version change and changelog.md before starting.\x1b[0m",
     (e) => {
-        if (e === "\n") tagAndPush();
+        if (e === "" || e.toLowerCase() === "y") tagAndPush();
         rl.close();
     }
 );
