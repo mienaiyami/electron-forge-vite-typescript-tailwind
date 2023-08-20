@@ -1,3 +1,4 @@
+const { writeFileSync, renameSync } = require("fs");
 const pkgJSON = require("./package.json");
 module.exports = {
     packagerConfig: {
@@ -56,6 +57,14 @@ module.exports = {
         },
     ],
     hooks: {
-        postMake: (config, makeResults) => {},
+        postMake: (config, makeResults) => {
+            writeFileSync("./test.json", JSON.stringify(makeResults, null, "\t"));
+            makeResults.forEach((e) => {
+                e.artifacts.forEach((e) => {
+                    const newName = e.replace(pkgJSON.version, "v" + pkgJSON.version);
+                    renameSync(e, newName);
+                });
+            });
+        },
     },
 };

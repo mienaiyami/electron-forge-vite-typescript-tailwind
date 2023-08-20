@@ -12,29 +12,29 @@ on:
 
 jobs:
 
-  buildDeb:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.15.0
-      - name: testing...
-        run: node -v
-      - name: Install dependencies
-        run: yarn ci --network-timeout 1000000
-      - name: forge make
-        run: yarn make:deb
+  # buildDeb:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Use Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 18.15.0
+  #     - name: testing...
+  #       run: node -v
+  #     - name: Install dependencies
+  #       run: yarn ci --network-timeout 1000000
+  #     - name: forge make
+  #       run: yarn make:deb
         
-      - uses: actions/upload-artifact@v3
-        with:
-          name: linux-build-file
-          path: ./out/full/Yomikiru-${{ github.ref_name }}-amd64.deb
+  #     - uses: actions/upload-artifact@v3
+  #       with:
+  #         name: linux-build-file
+  #         path: ./out/full/Yomikiru-${{ github.ref_name }}-amd64.deb
 
 
   build:
-    needs: buildDeb
+    # needs: buildDeb
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
@@ -46,12 +46,14 @@ jobs:
         run: yarn ci --network-timeout 1000000
       - name: forge make
         run: yarn make
-        
-      - uses: actions/download-artifact@v3
-        id: linux-build-file-downloader
-        with:
-          name: linux-build-file
-          path: ./out/full/
+      
+      # get .deb file
+
+      # - uses: actions/download-artifact@v3
+      #   id: linux-build-file-downloader
+      #   with:
+      #     name: linux-build-file
+      #     path: ./out/full/
           
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -61,8 +63,8 @@ jobs:
           name: ${{github.ref_name}}
           # add generated file here to upload
           files: |
-            ./out/full/ytdl-gui-win32-${{ github.ref_name }}-Portable.zip
-          body_path: changelog-temp.md 
+            ./out/make/zip/win32/ia32/electron-forge-vite-ts-react-tailwindcss-win32-ia32-${{ github.ref_name }}.zip
+          body_path: changelog.md 
           generate_release_notes: true
           # discussion_category_name: General
 
