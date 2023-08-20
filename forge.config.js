@@ -58,7 +58,7 @@ module.exports = {
     ],
     hooks: {
         postMake: (config, makeResults) => {
-            writeFileSync("./test.json", JSON.stringify(makeResults, null, "\t"));
+            // writeFileSync("./test.json", JSON.stringify(makeResults, null, "\t"));
             makeResults.forEach((e) => {
                 e.artifacts.forEach((e) => {
                     const newName = e.replace(pkgJSON.version, "v" + pkgJSON.version);
