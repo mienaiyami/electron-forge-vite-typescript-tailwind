@@ -4,11 +4,12 @@ permissions:
   contents: write
   discussions: write
 
-# on: workflow_dispatch
+on: workflow_dispatch
 # on: 
 #   push:
 #     tags:
 #       - "v*.*.*"
+
 
 jobs:
 
