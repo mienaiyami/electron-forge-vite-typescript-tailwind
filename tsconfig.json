@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "esnext",
+        "target": "ESNext",
         "allowJs": true,
         "module": "commonjs",
         "lib": ["dom", "ESNext", "DOM.Iterable"],
@@ -16,20 +16,15 @@
         "noEmit": true,
         "jsx": "react-jsx",
         "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
+        // "noUnusedLocals": true,
+        // "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         // "paths": {
         //   "*": [
         //     "node_modules/*"
         //   ]
         // }
-
-        /* for shadcn */
-        "baseUrl": ".",
-        "paths": {
-            "@": ["./@"]
-        }
+        "baseUrl": "."
     },
     "include": ["src/**/*"],
     "references": [
